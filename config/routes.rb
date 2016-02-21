@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
 
+  resources :bullying_types
   resources :complaint_types
     get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')

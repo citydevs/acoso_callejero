@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bullying Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bullying_types.each do |bullying_type| %>
+      <tr>
+        <td><%= bullying_type.name %></td>
+        <td><%= link_to 'Show', bullying_type %></td>
+        <td><%= link_to 'Edit', edit_bullying_type_path(bullying_type) %></td>
+        <td><%= link_to 'Destroy', bullying_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bullying type', new_bullying_type_path %>
