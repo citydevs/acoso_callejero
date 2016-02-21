@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @complaint.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @complaint.lng %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @complaint.user %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @complaint.place %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @complaint.condition %>
+</p>
+
+<p>
+  <strong>Complaint type:</strong>
+  <%= @complaint.complaint_type %>
+</p>
+
+<p>
+  <strong>Bullying type:</strong>
+  <%= @complaint.bullying_type %>
+</p>
+
+<p>
+  <strong>Aggressor:</strong>
+  <%= @complaint.aggressor %>
+</p>
+
+<%= link_to 'Edit', edit_complaint_path(@complaint) %> |
+<%= link_to 'Back', complaints_path %>

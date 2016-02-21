@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221202457) do
+ActiveRecord::Schema.define(version: 20160221203440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,25 +42,33 @@ ActiveRecord::Schema.define(version: 20160221202457) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "complaints", force: :cascade do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.integer  "condition_id"
+    t.integer  "complaint_type_id"
+    t.integer  "bullying_type_id"
+    t.integer  "aggressor_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "complaints", ["aggressor_id"], name: "index_complaints_on_aggressor_id", using: :btree
+  add_index "complaints", ["bullying_type_id"], name: "index_complaints_on_bullying_type_id", using: :btree
+  add_index "complaints", ["complaint_type_id"], name: "index_complaints_on_complaint_type_id", using: :btree
+  add_index "complaints", ["condition_id"], name: "index_complaints_on_condition_id", using: :btree
+  add_index "complaints", ["place_id"], name: "index_complaints_on_place_id", using: :btree
+  add_index "complaints", ["user_id"], name: "index_complaints_on_user_id", using: :btree
+
   create_table "conditions", force: :cascade do |t|
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "harassment_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "places", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "report_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,4 +84,10 @@ ActiveRecord::Schema.define(version: 20160221202457) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "complaints", "aggressors"
+  add_foreign_key "complaints", "bullying_types"
+  add_foreign_key "complaints", "complaint_types"
+  add_foreign_key "complaints", "conditions"
+  add_foreign_key "complaints", "places"
+  add_foreign_key "complaints", "users"
 end

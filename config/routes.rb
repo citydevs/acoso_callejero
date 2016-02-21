@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
 
+  resources :complaints
   resources :aggressors
   resources :conditions
   resources :places
