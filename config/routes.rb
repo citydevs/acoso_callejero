@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
 
+  resources :aggressors
   resources :conditions
   resources :places
   resources :bullying_types

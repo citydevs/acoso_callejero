@@ -1,0 +1,2 @@
+module AggressorsHelper
+end

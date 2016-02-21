@@ -1,0 +1,21 @@
+<%= form_for(@aggressor) do |f| %>
+  <% if @aggressor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aggressor.errors.count, "error") %> prohibited this aggressor from being saved:</h2>
+
+      <ul>
+      <% @aggressor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
