@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
 
+  resources :conditions
   resources :places
   resources :bullying_types
   resources :complaint_types
