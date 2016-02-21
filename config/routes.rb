@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
     
 
+  resources :places
   resources :bullying_types
   resources :complaint_types
     get 'auth/:provider/callback', to: 'sessions#create'
