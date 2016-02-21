@@ -69,6 +69,6 @@ class AggressorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aggressor_params
-      params.require(:aggressor).permit(:type)
+      params.require(:aggressor).permit(:name)
     end
 end

@@ -69,6 +69,6 @@ class ConditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def condition_params
-      params.require(:condition).permit(:type)
+      params.require(:condition).permit(:name)
     end
 end

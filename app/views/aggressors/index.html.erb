@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Type</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +13,7 @@
   <tbody>
     <% @aggressors.each do |aggressor| %>
       <tr>
-        <td><%= aggressor.type %></td>
+        <td><%= aggressor.name %></td>
         <td><%= link_to 'Show', aggressor %></td>
         <td><%= link_to 'Edit', edit_aggressor_path(aggressor) %></td>
         <td><%= link_to 'Destroy', aggressor, method: :delete, data: { confirm: 'Are you sure?' } %></td>

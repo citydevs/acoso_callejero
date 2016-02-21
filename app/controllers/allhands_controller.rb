@@ -2,6 +2,7 @@ class AllhandsController < ApplicationController
   before_action :set_user
 
   def index
+    @markers = Complaint.all
     if params[:call]
       validate(params)
     end

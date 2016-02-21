@@ -18,7 +18,7 @@ class AggressorsControllerTest < ActionController::TestCase
 
   test "should create aggressor" do
     assert_difference('Aggressor.count') do
-      post :create, aggressor: { type: @aggressor.type }
+      post :create, aggressor: { name: @aggressor.name }
     end
 
     assert_redirected_to aggressor_path(assigns(:aggressor))
@@ -35,7 +35,7 @@ class AggressorsControllerTest < ActionController::TestCase
   end
 
   test "should update aggressor" do
-    patch :update, id: @aggressor, aggressor: { type: @aggressor.type }
+    patch :update, id: @aggressor, aggressor: { name: @aggressor.name }
     assert_redirected_to aggressor_path(assigns(:aggressor))
   end
 

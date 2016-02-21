@@ -1,0 +1,30 @@
+
+.row
+  .col-md-12.map-landing{:id=>"map"}
+
+
+:javascript
+  $(document).ready(loadMapLanding);
+  var markersArray = [];
+  //mostramos en el mapa la ubicacion del usuario
+  function centerOnMap(position){
+    var markers = JSON.parse('#{raw(@markers.to_json)}');
+     for(i=0; i< markers.length; i++){
+      if(markers[i]["status"] === 'active'){
+        marker = handler.addMarker({
+          lat: markers[i]["lat"],
+          lng: markers[i]["lng"],
+          infowindow: "<a href=" + markers[i]["url"] + ">Proyecto: " + markers[i]["name"] + "</a>",
+          title:  "test"
+        });
+        markersArray.push(marker);
+      }
+    }
+    if(markers[0]["lat"]+"" == ""){
+      handler.map.centerOn(["25.6754382","-100.3483728"]);
+    }else{
+      handler.map.centerOn([markers[markers.length-1]["lat"],markers[markers.length-1]["lng"]]);
+    }
+
+  handler.getMap().setZoom(5);
+  }

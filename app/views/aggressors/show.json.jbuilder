@@ -1,1 +1,1 @@
-json.extract! @aggressor, :id, :type, :created_at, :updated_at
+json.extract! @aggressor, :id, :name, :created_at, :updated_at

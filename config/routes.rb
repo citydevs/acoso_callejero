@@ -2,8 +2,8 @@ Rails.application.routes.draw do
     
 
   resources :complaints
-  resources :aggressors
   resources :conditions
+  resources :aggressors
   resources :places
   resources :bullying_types
   resources :complaint_types

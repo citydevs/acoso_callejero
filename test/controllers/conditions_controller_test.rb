@@ -18,7 +18,7 @@ class ConditionsControllerTest < ActionController::TestCase
 
   test "should create condition" do
     assert_difference('Condition.count') do
-      post :create, condition: { type: @condition.type }
+      post :create, condition: { name: @condition.name }
     end
 
     assert_redirected_to condition_path(assigns(:condition))
@@ -35,7 +35,7 @@ class ConditionsControllerTest < ActionController::TestCase
   end
 
   test "should update condition" do
-    patch :update, id: @condition, condition: { type: @condition.type }
+    patch :update, id: @condition, condition: { name: @condition.name }
     assert_redirected_to condition_path(assigns(:condition))
   end
 
